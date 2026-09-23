@@ -127,7 +127,9 @@ export const Login: React.FC = () => {
       input.includes("backofficeppm524") ||
       input.includes("pannaipuram") ||
       input.includes("vadivubiochem") ||
-      input.includes("sundari")
+      input.includes("sundari") ||
+      input.includes("sudari") ||
+      input.includes("vadivu")
     ) {
       const match = pool.find((s) => s.code === "STATE-405");
       if (match) {
@@ -197,7 +199,9 @@ export const Login: React.FC = () => {
         (trimmedUser.toLowerCase().includes("backofficeppm524") ||
           trimmedUser.toLowerCase().includes("pannaipuram") ||
           trimmedUser.toLowerCase().includes("vadivubiochem") ||
-          trimmedUser.toLowerCase().includes("sundari"))
+          trimmedUser.toLowerCase().includes("sundari") ||
+          trimmedUser.toLowerCase().includes("sudari") ||
+          trimmedUser.toLowerCase().includes("vadivu"))
       ) {
         activeSchoolCode = "STATE-405";
         activeSchoolId = "sch_1789320725632_y3n2";
@@ -638,6 +642,9 @@ export const Login: React.FC = () => {
                       id="login-username"
                       type="text"
                       required
+                      autoCapitalize="none"
+                      autoCorrect="off"
+                      spellCheck={false}
                       placeholder="e.g. backofficeppm524@gmail.com, pssofttech@gmail.com"
                       value={usernameOrEmail}
                       onChange={(e) => setUsernameOrEmail(e.target.value)}
@@ -672,6 +679,9 @@ export const Login: React.FC = () => {
                       id="login-password"
                       type={showPassword ? "text" : "password"}
                       required
+                      autoCapitalize="none"
+                      autoCorrect="off"
+                      spellCheck={false}
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}

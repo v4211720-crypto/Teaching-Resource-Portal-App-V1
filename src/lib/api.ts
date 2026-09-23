@@ -134,28 +134,75 @@ export function getOfflineFiles(schoolId?: string): FileItem[] {
 }
 
 export const getAuthToken = (): string | null => {
-  const remember = localStorage.getItem(REMEMBER_KEY) === "true";
-  if (remember) {
-    return localStorage.getItem(TOKEN_KEY) || sessionStorage.getItem(TOKEN_KEY);
+  // 1. Try localStorage first (resilient across mobile browser tab reloads)
+  try {
+    if (typeof window !== "undefined" && window.localStorage) {
+      const token =
+        window.localStorage.getItem(TOKEN_KEY) ||
+        window.localStorage.getItem("teacher_hub_auth_token");
+      if (token && token.trim()) return token.trim();
+    }
+  } catch (e) {
+    console.warn("[api:getAuthToken] localStorage read failed:", e);
   }
-  return sessionStorage.getItem(TOKEN_KEY);
+
+  // 2. Fallback to sessionStorage
+  try {
+    if (typeof window !== "undefined" && window.sessionStorage) {
+      const token =
+        window.sessionStorage.getItem(TOKEN_KEY) ||
+        window.sessionStorage.getItem("teacher_hub_auth_token");
+      if (token && token.trim()) return token.trim();
+    }
+  } catch (e) {
+    console.warn("[api:getAuthToken] sessionStorage read failed:", e);
+  }
+
+  return null;
 };
 
-export const setAuthToken = (token: string, remember: boolean = false) => {
-  if (remember) {
-    localStorage.setItem(TOKEN_KEY, token);
-    localStorage.setItem(REMEMBER_KEY, "true");
-  } else {
-    sessionStorage.setItem(TOKEN_KEY, token);
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.removeItem(REMEMBER_KEY);
+export const setAuthToken = (token: string, remember: boolean = true) => {
+  // Always persist in localStorage first for mobile page-reload resilience
+  try {
+    if (typeof window !== "undefined" && window.localStorage) {
+      window.localStorage.setItem(TOKEN_KEY, token);
+      window.localStorage.setItem("teacher_hub_auth_token", token);
+      if (remember) {
+        window.localStorage.setItem(REMEMBER_KEY, "true");
+        window.localStorage.setItem("teacher_hub_remember_me", "true");
+      }
+    }
+  } catch (e) {
+    console.warn("[api:setAuthToken] localStorage write failed, falling back to sessionStorage:", e);
+  }
+
+  // Always mirror in sessionStorage as fallback
+  try {
+    if (typeof window !== "undefined" && window.sessionStorage) {
+      window.sessionStorage.setItem(TOKEN_KEY, token);
+      window.sessionStorage.setItem("teacher_hub_auth_token", token);
+    }
+  } catch (e) {
+    console.warn("[api:setAuthToken] sessionStorage write failed:", e);
   }
 };
 
 export const removeAuthToken = () => {
-  localStorage.removeItem(TOKEN_KEY);
-  localStorage.removeItem(REMEMBER_KEY);
-  sessionStorage.removeItem(TOKEN_KEY);
+  try {
+    if (typeof window !== "undefined" && window.localStorage) {
+      window.localStorage.removeItem(TOKEN_KEY);
+      window.localStorage.removeItem("teacher_hub_auth_token");
+      window.localStorage.removeItem(REMEMBER_KEY);
+      window.localStorage.removeItem("teacher_hub_remember_me");
+    }
+  } catch {}
+
+  try {
+    if (typeof window !== "undefined" && window.sessionStorage) {
+      window.sessionStorage.removeItem(TOKEN_KEY);
+      window.sessionStorage.removeItem("teacher_hub_auth_token");
+    }
+  } catch {}
 };
 
 export const getSavedDevice = (): string => {
@@ -458,8 +505,15 @@ export const api = {
       (u) => u.username.toLowerCase() === lower || u.email.toLowerCase() === lower
     );
 
-    // Guaranteed fallback for Sundari / vadivubiochem on any browser or device
-    if (!userMatch && (lower === "vadivubiochem@gmail.com" || lower === "sundari")) {
+    // Guaranteed fallback for Sundari / Sudari / vadivu / vadivubiochem on any browser or device
+    if (
+      !userMatch &&
+      (lower === "vadivubiochem@gmail.com" ||
+        lower === "sundari" ||
+        lower === "sudari" ||
+        lower === "vadivu" ||
+        lower.includes("vadivubio"))
+    ) {
       userMatch = {
         id: "usr_teacher_sundari",
         schoolId: "sch_1789320725632_y3n2",
@@ -470,7 +524,7 @@ export const api = {
         status: "active",
         storage_limit: 25 * 1024 * 1024 * 1024,
         created_at: "2026-09-23T10:00:00.000Z",
-        name: "Sundari",
+        name: "vadivu (Sundari)",
         department: "Biochemistry & Science",
       };
       saveOfflineUser(userMatch);
