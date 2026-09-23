@@ -468,6 +468,17 @@
       "schoolId": "sch_1789320725632_y3n2",
       "user_id": "usr_admin_1789320725633_fzsz",
       "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop Computer",
+      "device": "Desktop Computer",
+      "ip": "127.0.0.1",
+      "id": "log_1790182587876_24e2r",
+      "timestamp": "2026-09-23T16:56:27.876Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
       "action": "CREATE_USER",
       "details": "Admin created user \"Sundari\" (teacher) in institution",
       "device": "Web",

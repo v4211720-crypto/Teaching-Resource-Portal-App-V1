@@ -81,6 +81,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const [newPassword, setNewPassword] = useState("");
   const [newName, setNewName] = useState("");
   const [newRole, setNewRole] = useState<"teacher" | "admin">("teacher");
+  const [isCreatingUser, setIsCreatingUser] = useState(false);
+  const [addUserError, setAddUserError] = useState("");
 
   // Reset password modal state
   const [resettingUser, setResettingUser] = useState<User | null>(null);
@@ -292,10 +294,12 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
   const handleCreateUser = async (e: React.FormEvent) => {
     e.preventDefault();
+    setAddUserError("");
     if (!newUsername.trim() || !newEmail.trim() || !newPassword) {
-      alert("Please enter username, email, and password");
+      setAddUserError("Please enter username, email, and password");
       return;
     }
+    setIsCreatingUser(true);
     try {
       const created = await api.createTeacher({
         username: newUsername.trim(),
@@ -309,6 +313,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       setNewEmail("");
       setNewPassword("");
       setNewName("");
+      setAddUserError("");
       addNotification(
         "Teacher Account Created",
         `Teacher ${created.name || created.username} account has been created successfully.`,
@@ -316,7 +321,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       );
       await loadData();
     } catch (err: any) {
-      alert(err.message || "Failed to create teacher");
+      console.error("Failed to create teacher", err);
+      setAddUserError(err.message || "Failed to create teacher. Please try again.");
+    } finally {
+      setIsCreatingUser(false);
     }
   };
 
@@ -1183,6 +1191,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
             </div>
 
             <form onSubmit={handleCreateUser} className="space-y-3 text-xs">
+              {addUserError && (
+                <div className="rounded-xl bg-red-50 p-3 text-xs text-red-700 border border-red-200 flex items-center gap-2">
+                  <AlertCircle className="h-4 w-4 shrink-0 text-red-600" />
+                  <span>{addUserError}</span>
+                </div>
+              )}
+
               <div>
                 <label className="block font-bold text-slate-700 mb-1">Full Name</label>
                 <input
@@ -1253,9 +1268,17 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="rounded-xl bg-purple-600 px-4 py-2 font-bold text-white hover:bg-purple-700"
+                  disabled={isCreatingUser}
+                  className="rounded-xl bg-purple-600 hover:bg-purple-700 disabled:opacity-50 px-4 py-2 font-bold text-white transition flex items-center gap-2"
                 >
-                  Create Teacher Account
+                  {isCreatingUser ? (
+                    <>
+                      <div className="h-3.5 w-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      <span>Creating Account...</span>
+                    </>
+                  ) : (
+                    <span>Create Teacher Account</span>
+                  )}
                 </button>
               </div>
             </form>
