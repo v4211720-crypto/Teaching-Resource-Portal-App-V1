@@ -1,0 +1,6 @@
+{
+  "name": "Teacher Resource Hub",
+  "description": "Multi-user teaching resource management platform for uploading, organizing, previewing, and downloading educational resources across desktop and mobile devices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

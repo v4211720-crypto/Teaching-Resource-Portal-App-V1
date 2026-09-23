@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Resource Hub</title>
+    <meta name="description" content="Multi-user teaching resource management platform for uploading, organizing, previewing, and downloading educational resources across desktop and mobile devices." />
+    <meta property="og:title" content="Teacher Resource Hub" />
+    <meta property="og:description" content="Multi-user teaching resource management platform for uploading, organizing, previewing, and downloading educational resources across desktop and mobile devices." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#115e59" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="TeacherHub" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <script>
+      // Gracefully prevent benign Vite HMR websocket connection notices from triggering uncaught error overlays in iframe
+      window.addEventListener('error', function(e) {
+        if (e && e.message && (e.message.includes('[vite]') || e.message.includes('websocket'))) {
+          e.preventDefault && e.preventDefault();
+        }
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e && e.reason && String(e.reason).includes('[vite]')) {
+          e.preventDefault && e.preventDefault();
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
