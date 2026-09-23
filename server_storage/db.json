@@ -84,7 +84,7 @@
       "schoolId": "sch_1789320725632_y3n2",
       "username": "Sundari",
       "email": "vadivubiochem@gmail.com",
-      "password_hash": "$2b$10$.lQh6GOMrA.Gu6Rvke78kO71sax.i7hZdx6p/3AFcDG.1iUn3t87y",
+      "password_hash": "$2b$10$8OstulR6PagMnIsvXLCIpO3ceX2GcdHQuN5t13xl1nXrm7YPiGqCG",
       "role": "teacher",
       "status": "active",
       "name": "Sundari",
@@ -464,6 +464,17 @@
     }
   ],
   "activity_logs": [
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_1790181932693_vwbp",
+      "username": "Sundari",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop Computer",
+      "device": "Desktop Computer",
+      "ip": "127.0.0.1",
+      "id": "log_1790184049507_7ibo0",
+      "timestamp": "2026-09-23T17:20:49.507Z"
+    },
     {
       "schoolId": "sch_1789320725632_y3n2",
       "user_id": "usr_admin_1789320725633_fzsz",

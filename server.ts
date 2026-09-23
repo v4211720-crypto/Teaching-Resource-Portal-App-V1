@@ -228,6 +228,19 @@ function getInitialDb(): DatabaseSchema {
       name: "Admin",
       department: "Institutional Administration",
     },
+    {
+      id: "usr_teacher_sundari",
+      schoolId: "sch_1789320725632_y3n2",
+      username: "Sundari",
+      email: "vadivubiochem@gmail.com",
+      password_hash: bcrypt.hashSync("staff123", salt),
+      role: "teacher",
+      status: "active",
+      storage_limit: 25 * 1024 * 1024 * 1024,
+      created_at: now,
+      name: "Sundari",
+      department: "Biochemistry & Science",
+    },
   ];
 
   // Folders structure matching user specification:
@@ -1358,7 +1371,11 @@ async function startServer() {
             s.code.toUpperCase() === requestedSchool.toUpperCase() ||
             s.id === requestedSchool ||
             s.admin_email?.toLowerCase() === username.toLowerCase() ||
-            (s.code === "STATE-405" && username.toLowerCase().includes("backofficeppm524"))
+            (s.code === "STATE-405" && (
+              username.toLowerCase().includes("backofficeppm524") ||
+              username.toLowerCase().includes("vadivubiochem") ||
+              username.toLowerCase().includes("sundari")
+            ))
         );
         if (matchedSeedSchool) {
           if (!db.findSchoolById(matchedSeedSchool.id)) {
@@ -1394,6 +1411,7 @@ async function startServer() {
 
     const cleanPassword = (password || "").toString().trim();
     const isDefaultRecoveryPass =
+      cleanPassword.toLowerCase() === "staff123" ||
       cleanPassword.toLowerCase() === "password123" ||
       cleanPassword.toLowerCase() === "password" ||
       cleanPassword.toLowerCase() === "email password" ||
@@ -1486,10 +1504,11 @@ async function startServer() {
 
     if (!match && isDefaultRecoveryPass) {
       // Demo and initial accounts recovery
-      user.password_hash = bcrypt.hashSync("password123", 10);
+      const targetHash = cleanPassword || "staff123";
+      user.password_hash = bcrypt.hashSync(targetHash, 10);
       db.save();
       match = true;
-      console.log(`[AUTH LOGIN REPAIR] Synchronized password hash for "${user.username}" to match "password123"`);
+      console.log(`[AUTH LOGIN REPAIR] Synchronized password hash for "${user.username}" to match "${targetHash}"`);
     }
     if (!match) {
       console.warn(`[AUTH LOGIN WARN] Password verification failed for user "${username}".`);

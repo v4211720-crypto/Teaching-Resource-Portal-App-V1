@@ -123,7 +123,12 @@ export const Login: React.FC = () => {
     const input = usernameOrEmail.trim().toLowerCase();
     if (!input) return;
     const pool = schools.length > 0 ? schools : DEFAULT_SCHOOLS;
-    if (input.includes("backofficeppm524") || input.includes("pannaipuram")) {
+    if (
+      input.includes("backofficeppm524") ||
+      input.includes("pannaipuram") ||
+      input.includes("vadivubiochem") ||
+      input.includes("sundari")
+    ) {
       const match = pool.find((s) => s.code === "STATE-405");
       if (match) {
         setSelectedSchool(match);
@@ -187,7 +192,13 @@ export const Login: React.FC = () => {
       let activeSchoolCode = (schoolCode.trim() || selectedSchool?.code || "").trim();
       let activeSchoolId = (selectedSchool?.id || "").trim();
 
-      if (!activeSchoolCode && (trimmedUser.toLowerCase().includes("backofficeppm524") || trimmedUser.toLowerCase().includes("pannaipuram"))) {
+      if (
+        !activeSchoolCode &&
+        (trimmedUser.toLowerCase().includes("backofficeppm524") ||
+          trimmedUser.toLowerCase().includes("pannaipuram") ||
+          trimmedUser.toLowerCase().includes("vadivubiochem") ||
+          trimmedUser.toLowerCase().includes("sundari"))
+      ) {
         activeSchoolCode = "STATE-405";
         activeSchoolId = "sch_1789320725632_y3n2";
       }
@@ -736,17 +747,31 @@ export const Login: React.FC = () => {
                       <p className="text-[10px] text-slate-500 line-clamp-1 mb-1">Govt Hr Sec School</p>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => fillQuickAccount("backofficeppm524@gmail.com", "password123", "STATE-405")}
-                      className="w-full flex items-center justify-between p-1.5 rounded-lg border border-teal-300 bg-white hover:bg-teal-100/60 text-left transition shadow-2xs"
-                    >
-                      <div className="truncate">
-                        <div className="text-[10px] font-bold text-teal-950">School Admin</div>
-                        <div className="text-[9px] text-teal-700 font-mono truncate">backofficeppm524@...</div>
-                      </div>
-                      <ShieldCheck className="h-3.5 w-3.5 text-teal-700 shrink-0" />
-                    </button>
+                    <div className="space-y-1">
+                      <button
+                        type="button"
+                        onClick={() => fillQuickAccount("backofficeppm524@gmail.com", "password123", "STATE-405")}
+                        className="w-full flex items-center justify-between p-1.5 rounded-lg border border-teal-300 bg-white hover:bg-teal-100/60 text-left transition shadow-2xs"
+                      >
+                        <div className="truncate">
+                          <div className="text-[10px] font-bold text-teal-950">School Admin</div>
+                          <div className="text-[9px] text-teal-700 font-mono truncate">backofficeppm524@...</div>
+                        </div>
+                        <ShieldCheck className="h-3.5 w-3.5 text-teal-700 shrink-0" />
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => fillQuickAccount("vadivubiochem@gmail.com", "staff123", "STATE-405")}
+                        className="w-full flex items-center justify-between p-1.5 rounded-lg border border-emerald-300 bg-white hover:bg-emerald-100/60 text-left transition shadow-2xs"
+                      >
+                        <div className="truncate">
+                          <div className="text-[10px] font-bold text-emerald-950">Teacher (Sundari)</div>
+                          <div className="text-[9px] text-emerald-700 font-mono truncate">vadivubiochem@...</div>
+                        </div>
+                        <GraduationCap className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
+                      </button>
+                    </div>
                   </div>
 
                   {/* School 2: Central Resource Hub */}

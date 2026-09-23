@@ -52,6 +52,20 @@ export const DEFAULT_USERS: (User & { password: string })[] = [
     department: "Institutional Administration",
     school: DEFAULT_SCHOOLS[0],
   },
+  {
+    id: "usr_teacher_sundari",
+    schoolId: "sch_1789320725632_y3n2",
+    username: "Sundari",
+    email: "vadivubiochem@gmail.com",
+    password: "staff123",
+    role: "teacher",
+    status: "active",
+    storage_limit: 25 * 1024 * 1024 * 1024,
+    created_at: "2026-09-23T10:00:00.000Z",
+    name: "Sundari",
+    department: "Biochemistry & Science",
+    school: DEFAULT_SCHOOLS[0],
+  },
   // Central Resource Hub (CRH-101)
   {
     id: "usr_admin_1",
