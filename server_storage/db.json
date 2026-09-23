@@ -1,46 +1,6 @@
 {
   "users": [
     {
-      "id": "usr_admin_1",
-      "username": "admin",
-      "email": "pssofttech@gmail.com",
-      "password_hash": "$2b$10$tSIwtprQ16clydHIMO2NeOIYQOOVdFc/sYROojyPCQDei2prw5D.W",
-      "role": "admin",
-      "status": "active",
-      "storage_limit": 107374182400,
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "name": "pssofttech",
-      "department": "Administration & IT",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "usr_teacher_emal",
-      "username": "emal",
-      "email": "emal@school.edu",
-      "password_hash": "$2b$10$eKj6jm4ZiQS61iif0fV4NeZodWRjWH6VZ8BCLeXihIlwZ52goOATi",
-      "role": "teacher",
-      "status": "active",
-      "storage_limit": 16106127360,
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "name": "Emal",
-      "department": "Computer Science",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "usr_teacher_sarah",
-      "username": "sarah.jenkins",
-      "email": "sarah.j@school.edu",
-      "password_hash": "$2b$10$tSIwtprQ16clydHIMO2NeOIYQOOVdFc/sYROojyPCQDei2prw5D.W",
-      "role": "teacher",
-      "status": "active",
-      "storage_limit": 16106127360,
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "name": "Sarah Jenkins",
-      "department": "Science & Mathematics",
-      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
-      "schoolId": "sch_central"
-    },
-    {
       "id": "usr_admin_1789320725633_fzsz",
       "schoolId": "sch_1789320725632_y3n2",
       "username": "backofficeppm524",
@@ -54,28 +14,55 @@
       "department": "Institutional Administration"
     },
     {
-      "id": "usr_1790171622935_63jr",
-      "schoolId": "sch_1789320725632_y3n2",
-      "username": "Vadivu",
-      "email": "vadivubiochem@gmail.com",
-      "password_hash": "$2b$10$mLTiAjlKqKduBCWydvO44u06LcjRvUpt6hyumXrp3ZQb9WZSCUwpW",
+      "id": "usr_admin_1",
+      "schoolId": "sch_central",
+      "username": "admin",
+      "email": "pssofttech@gmail.com",
+      "password_hash": "$2b$10$Y.m22FsoGpLNZSWlRrKkJeqTG7wYL5eBfGZ5OAXl2.o1rvJp8cbS6",
+      "role": "admin",
+      "status": "active",
+      "storage_limit": 107374182400,
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "name": "pssofttech",
+      "department": "Administration & IT"
+    },
+    {
+      "id": "usr_teacher_emal",
+      "schoolId": "sch_central",
+      "username": "emal",
+      "email": "emal@school.edu",
+      "password_hash": "$2b$10$Y.m22FsoGpLNZSWlRrKkJev2g8zZFezE5.Kxo9zc/55PMdXJyu7v.",
       "role": "teacher",
       "status": "active",
-      "name": "Sundari",
-      "department": "General Education",
       "storage_limit": 16106127360,
-      "created_at": "2026-09-23T13:53:43.043Z"
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "name": "Emal",
+      "department": "Computer Science"
+    },
+    {
+      "id": "usr_teacher_sarah",
+      "schoolId": "sch_central",
+      "username": "sarah.jenkins",
+      "email": "sarah.j@school.edu",
+      "password_hash": "$2b$10$Y.m22FsoGpLNZSWlRrKkJeqTG7wYL5eBfGZ5OAXl2.o1rvJp8cbS6",
+      "role": "teacher",
+      "status": "active",
+      "storage_limit": 16106127360,
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "name": "Sarah Jenkins",
+      "department": "Science & Mathematics",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80"
     },
     {
       "id": "usr_admin_xavier",
       "schoolId": "sch_xavier",
       "username": "xavier.admin",
       "email": "admin@xavier.edu",
-      "password_hash": "$2b$10$fXmOX6i13CqRhEdxdL8HnuzETn4tkTGljmejb3t/RjT3rZhxQCGLy",
+      "password_hash": "$2b$10$Y.m22FsoGpLNZSWlRrKkJeqTG7wYL5eBfGZ5OAXl2.o1rvJp8cbS6",
       "role": "admin",
       "status": "active",
       "storage_limit": 53687091200,
-      "created_at": "2026-09-23T13:58:03.802Z",
+      "created_at": "2026-09-23T16:04:10.323Z",
       "name": "Dr. Marcus Xavier",
       "department": "Academic Directorate"
     },
@@ -84,151 +71,16 @@
       "schoolId": "sch_xavier",
       "username": "robert.t",
       "email": "robert@xavier.edu",
-      "password_hash": "$2b$10$fXmOX6i13CqRhEdxdL8HnuzETn4tkTGljmejb3t/RjT3rZhxQCGLy",
+      "password_hash": "$2b$10$Y.m22FsoGpLNZSWlRrKkJeqTG7wYL5eBfGZ5OAXl2.o1rvJp8cbS6",
       "role": "teacher",
       "status": "active",
       "storage_limit": 21474836480,
-      "created_at": "2026-09-23T13:58:03.802Z",
+      "created_at": "2026-09-23T16:04:10.323Z",
       "name": "Prof. Robert Langdon",
       "department": "Physics & Astronomy"
     }
   ],
   "folders": [
-    {
-      "id": "fld_root_teaching",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": null,
-      "folder_name": "Teaching Resources",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "blue",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c11",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_root_teaching",
-      "folder_name": "Class 11",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "indigo",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c11_cs",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c11",
-      "folder_name": "Computer Science",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "sky",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c11_qp",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c11",
-      "folder_name": "Question Papers",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "emerald",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c12",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_root_teaching",
-      "folder_name": "Class 12",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "purple",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c12_cs",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c12",
-      "folder_name": "Computer Science",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "indigo",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c12_l1",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c12_cs",
-      "folder_name": "Lesson 1",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "blue",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c12_l2",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c12_cs",
-      "folder_name": "Lesson 2",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "cyan",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c12_l5",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c12_cs",
-      "folder_name": "Lesson 5",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "teal",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c12_vid",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c12",
-      "folder_name": "Videos",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "amber",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_c12_aud",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_c12",
-      "folder_name": "Audio",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "rose",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_ppt",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_root_teaching",
-      "folder_name": "PPT",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "orange",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_pdf",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_root_teaching",
-      "folder_name": "PDF",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "red",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_worksheets",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_root_teaching",
-      "folder_name": "Worksheets",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "emerald",
-      "schoolId": "sch_central"
-    },
-    {
-      "id": "fld_model_qp",
-      "user_id": "usr_admin_1",
-      "parent_folder_id": "fld_root_teaching",
-      "folder_name": "Model Question Papers",
-      "created_at": "2026-09-12T12:48:08.282Z",
-      "color": "violet",
-      "schoolId": "sch_central"
-    },
     {
       "id": "fld_1789320725728_root",
       "schoolId": "sch_1789320725632_y3n2",
@@ -239,12 +91,147 @@
       "color": "blue"
     },
     {
+      "id": "fld_root_teaching",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": null,
+      "folder_name": "Teaching Resources",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "blue"
+    },
+    {
+      "id": "fld_c11",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_root_teaching",
+      "folder_name": "Class 11",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "indigo"
+    },
+    {
+      "id": "fld_c11_cs",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c11",
+      "folder_name": "Computer Science",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "sky"
+    },
+    {
+      "id": "fld_c11_qp",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c11",
+      "folder_name": "Question Papers",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "emerald"
+    },
+    {
+      "id": "fld_c12",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_root_teaching",
+      "folder_name": "Class 12",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "purple"
+    },
+    {
+      "id": "fld_c12_cs",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c12",
+      "folder_name": "Computer Science",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "indigo"
+    },
+    {
+      "id": "fld_c12_l1",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c12_cs",
+      "folder_name": "Lesson 1",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "blue"
+    },
+    {
+      "id": "fld_c12_l2",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c12_cs",
+      "folder_name": "Lesson 2",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "cyan"
+    },
+    {
+      "id": "fld_c12_l5",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c12_cs",
+      "folder_name": "Lesson 5",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "teal"
+    },
+    {
+      "id": "fld_c12_vid",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c12",
+      "folder_name": "Videos",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "amber"
+    },
+    {
+      "id": "fld_c12_aud",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_c12",
+      "folder_name": "Audio",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "rose"
+    },
+    {
+      "id": "fld_ppt",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_root_teaching",
+      "folder_name": "PPT",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "orange"
+    },
+    {
+      "id": "fld_pdf",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_root_teaching",
+      "folder_name": "PDF",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "red"
+    },
+    {
+      "id": "fld_worksheets",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_root_teaching",
+      "folder_name": "Worksheets",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "emerald"
+    },
+    {
+      "id": "fld_model_qp",
+      "schoolId": "sch_central",
+      "user_id": "usr_admin_1",
+      "parent_folder_id": "fld_root_teaching",
+      "folder_name": "Model Question Papers",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "color": "violet"
+    },
+    {
       "id": "fld_xav_root",
       "schoolId": "sch_xavier",
       "user_id": "usr_admin_xavier",
       "parent_folder_id": null,
       "folder_name": "St. Xavier Curricula & Labs",
-      "created_at": "2026-09-23T13:58:03.802Z",
+      "created_at": "2026-09-23T16:04:10.323Z",
       "color": "emerald"
     },
     {
@@ -253,7 +240,7 @@
       "user_id": "usr_admin_xavier",
       "parent_folder_id": "fld_xav_root",
       "folder_name": "Physics Laboratory Manuals",
-      "created_at": "2026-09-23T13:58:03.802Z",
+      "created_at": "2026-09-23T16:04:10.323Z",
       "color": "blue"
     },
     {
@@ -262,7 +249,7 @@
       "user_id": "usr_admin_xavier",
       "parent_folder_id": "fld_xav_root",
       "folder_name": "Advanced Calculus Question Bank",
-      "created_at": "2026-09-23T13:58:03.802Z",
+      "created_at": "2026-09-23T16:04:10.323Z",
       "color": "indigo"
     }
   ],
@@ -287,87 +274,8 @@
       "description": ""
     },
     {
-      "id": "file_1789440989826_7kqsa",
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "folder_id": null,
-      "file_name": "HSCResultAnalysis.exe",
-      "file_type": "other",
-      "file_size": 54840524,
-      "mime_type": "application/x-msdownload",
-      "storage_path": "1789440989717-967209534_HSCResultAnalysis.exe",
-      "device": "Desktop Computer",
-      "uploaded_at": "2026-09-15T02:56:29.826Z",
-      "updated_at": "2026-09-21T17:05:27.305Z",
-      "is_favorite": false,
-      "is_trashed": false,
-      "sharing_visibility": "all_teachers",
-      "shared_with_users": [],
-      "description": "",
-      "tags": [
-        "Physics",
-        "Optics"
-      ]
-    },
-    {
-      "id": "file_1789438320195_4xaht",
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "folder_id": null,
-      "file_name": "EducationalSetup.exe",
-      "file_type": "other",
-      "file_size": 28,
-      "mime_type": "application/x-msdownload",
-      "storage_path": "1789438320193-680783777_EducationalSetup.exe",
-      "device": "Desktop Computer",
-      "uploaded_at": "2026-09-15T02:12:00.195Z",
-      "updated_at": "2026-09-15T02:12:00.195Z",
-      "is_favorite": false,
-      "is_trashed": false,
-      "sharing_visibility": "all_teachers",
-      "shared_with_users": [],
-      "description": ""
-    },
-    {
-      "id": "file_1789438289833_qkhub",
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "folder_id": null,
-      "file_name": "HSCResultAnalysis.exe",
-      "file_type": "other",
-      "file_size": 63,
-      "mime_type": "application/x-msdownload",
-      "storage_path": "1789438289827-575530442_HSCResultAnalysis.exe",
-      "device": "Desktop (Windows)",
-      "uploaded_at": "2026-09-15T02:11:29.833Z",
-      "updated_at": "2026-09-15T02:11:29.833Z",
-      "is_favorite": false,
-      "is_trashed": false,
-      "sharing_visibility": "all_teachers",
-      "shared_with_users": [],
-      "description": ""
-    },
-    {
-      "id": "file_1789217959500_sz0v7",
-      "user_id": "usr_admin_1",
-      "folder_id": null,
-      "file_name": "CG Class Topics - August 2026.xlsx",
-      "file_type": "document",
-      "file_size": 10327,
-      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "storage_path": "1789217959494-286630739_CG_Class_Topics_-_August_2026.xlsx",
-      "device": "Desktop Computer",
-      "uploaded_at": "2026-09-12T12:59:19.500Z",
-      "updated_at": "2026-09-12T12:59:19.500Z",
-      "is_favorite": false,
-      "is_trashed": false,
-      "sharing_visibility": "all_teachers",
-      "shared_with_users": [],
-      "description": "",
-      "schoolId": "sch_central"
-    },
-    {
       "id": "file_l5_video",
+      "schoolId": "sch_central",
       "user_id": "usr_admin_1",
       "folder_id": "fld_c12_l5",
       "file_name": "Class_12_Lesson_5.mp4",
@@ -376,18 +284,24 @@
       "mime_type": "video/mp4",
       "storage_path": "sample_lesson_video.mp4",
       "device": "Mobile (iPhone 15 Pro)",
-      "uploaded_at": "2026-09-12T10:48:08.601Z",
-      "updated_at": "2026-09-12T10:48:08.601Z",
+      "uploaded_at": "2026-09-23T14:04:10.954Z",
+      "updated_at": "2026-09-23T14:04:10.954Z",
       "is_favorite": true,
       "is_trashed": false,
       "sharing_visibility": "all_teachers",
       "shared_with_users": [],
       "description": "Class 12 Lesson 5 video lecture uploaded from mobile phone. Accessible on desktop browser.",
       "duration": 1420,
-      "schoolId": "sch_central"
+      "tags": [
+        "Physics",
+        "Grade-12",
+        "Video-Lecture",
+        "Lesson-5"
+      ]
     },
     {
       "id": "file_lesson2_notes",
+      "schoolId": "sch_central",
       "user_id": "usr_teacher_emal",
       "folder_id": "fld_c12_l2",
       "file_name": "Lesson_2_Data_Structures.pdf",
@@ -396,17 +310,23 @@
       "mime_type": "application/pdf",
       "storage_path": "sample_syllabus.txt",
       "device": "Desktop Computer (Chrome/Windows)",
-      "uploaded_at": "2026-09-11T12:48:08.601Z",
-      "updated_at": "2026-09-11T12:48:08.601Z",
+      "uploaded_at": "2026-09-22T16:04:10.954Z",
+      "updated_at": "2026-09-22T16:04:10.954Z",
       "is_favorite": true,
       "is_trashed": false,
       "sharing_visibility": "all_teachers",
       "shared_with_users": [],
       "description": "Stacks, Queues, and Linked Lists lecture slides with code examples.",
-      "schoolId": "sch_central"
+      "tags": [
+        "Computer-Science",
+        "Grade-12",
+        "Lesson-Notes",
+        "Data-Structures"
+      ]
     },
     {
       "id": "file_c12_audio",
+      "schoolId": "sch_central",
       "user_id": "usr_admin_1",
       "folder_id": "fld_c12_aud",
       "file_name": "Computer_Networks_Summary_Audio.mp3",
@@ -415,18 +335,24 @@
       "mime_type": "audio/mpeg",
       "storage_path": "sample_lesson_audio.mp3",
       "device": "Mobile (Android Chrome)",
-      "uploaded_at": "2026-09-10T12:48:08.601Z",
-      "updated_at": "2026-09-10T12:48:08.601Z",
+      "uploaded_at": "2026-09-21T16:04:10.954Z",
+      "updated_at": "2026-09-21T16:04:10.954Z",
       "is_favorite": false,
       "is_trashed": false,
       "sharing_visibility": "all_teachers",
       "shared_with_users": [],
       "description": "Audio lecture summary for students review.",
       "duration": 780,
-      "schoolId": "sch_central"
+      "tags": [
+        "Audio-Lesson",
+        "Networking",
+        "Revision",
+        "Grade-12"
+      ]
     },
     {
       "id": "file_model_qp",
+      "schoolId": "sch_central",
       "user_id": "usr_admin_1",
       "folder_id": "fld_model_qp",
       "file_name": "Model_Question_Paper_Term2.docx",
@@ -435,17 +361,23 @@
       "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "storage_path": "class_12_model_paper.txt",
       "device": "Desktop Computer (Chrome/Mac)",
-      "uploaded_at": "2026-09-09T12:48:08.601Z",
-      "updated_at": "2026-09-09T12:48:08.601Z",
+      "uploaded_at": "2026-09-20T16:04:10.954Z",
+      "updated_at": "2026-09-20T16:04:10.954Z",
       "is_favorite": true,
       "is_trashed": false,
       "sharing_visibility": "all_teachers",
       "shared_with_users": [],
       "description": "Term 2 final question paper with marking scheme.",
-      "schoolId": "sch_central"
+      "tags": [
+        "Exam-Prep",
+        "Model-Paper",
+        "Term-2",
+        "Grade-12"
+      ]
     },
     {
       "id": "file_lab_circuit",
+      "schoolId": "sch_central",
       "user_id": "usr_teacher_sarah",
       "folder_id": "fld_c11_cs",
       "file_name": "Logic_Gates_Diagram.png",
@@ -454,14 +386,19 @@
       "mime_type": "image/png",
       "storage_path": "sample_diagram.png",
       "device": "Mobile (Android)",
-      "uploaded_at": "2026-09-08T12:48:08.601Z",
-      "updated_at": "2026-09-08T12:48:08.601Z",
+      "uploaded_at": "2026-09-19T16:04:10.954Z",
+      "updated_at": "2026-09-19T16:04:10.954Z",
       "is_favorite": false,
       "is_trashed": false,
       "sharing_visibility": "all_teachers",
       "shared_with_users": [],
       "description": "High resolution NAND/NOR logic circuit diagram for lab experiment.",
-      "schoolId": "sch_central"
+      "tags": [
+        "STEM",
+        "Lab-Diagram",
+        "Logic-Gates",
+        "Grade-11"
+      ]
     },
     {
       "id": "file_xav_phy_manual",
@@ -474,8 +411,8 @@
       "mime_type": "application/pdf",
       "storage_path": "xavier_physics_lab.txt",
       "device": "Desktop Computer (Firefox/Linux)",
-      "uploaded_at": "2026-09-23T09:58:04.421Z",
-      "updated_at": "2026-09-23T09:58:04.421Z",
+      "uploaded_at": "2026-09-23T12:04:10.954Z",
+      "updated_at": "2026-09-23T12:04:10.954Z",
       "is_favorite": true,
       "is_trashed": false,
       "sharing_visibility": "all_teachers",
@@ -499,8 +436,8 @@
       "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "storage_path": "xavier_physics_lab.txt",
       "device": "Desktop Computer (Safari/Mac)",
-      "uploaded_at": "2026-09-21T13:58:04.421Z",
-      "updated_at": "2026-09-21T13:58:04.421Z",
+      "uploaded_at": "2026-09-21T16:04:10.954Z",
+      "updated_at": "2026-09-21T16:04:10.954Z",
       "is_favorite": false,
       "is_trashed": false,
       "sharing_visibility": "all_teachers",
@@ -515,35 +452,133 @@
   ],
   "activity_logs": [
     {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "DELETE_USER",
-      "details": "Admin deleted faculty account \"temp_teacher_1790171899660\" (Temporary Test Teacher) from institution",
-      "device": "Web",
-      "id": "log_1790171899785_zt8q6",
-      "timestamp": "2026-09-23T13:58:19.785Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "CREATE_USER",
-      "details": "Admin created user \"temp_teacher_1790171899660\" (teacher) in institution",
-      "device": "Web",
-      "id": "log_1790171899771_amctv",
-      "timestamp": "2026-09-23T13:58:19.772Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
       "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop Computer",
       "device": "Desktop Computer",
       "ip": "127.0.0.1",
-      "id": "log_1790171899647_f65s1",
-      "timestamp": "2026-09-23T13:58:19.647Z"
+      "id": "log_1790179461798_sjdw4",
+      "timestamp": "2026-09-23T16:04:21.798Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop Computer",
+      "device": "Desktop Computer",
+      "ip": "127.0.0.1",
+      "id": "log_1790179457602_9b6p5",
+      "timestamp": "2026-09-23T16:04:17.602Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop PC",
+      "device": "Desktop PC",
+      "ip": "127.0.0.1",
+      "id": "log_1790179057039_5yxmh",
+      "timestamp": "2026-09-23T15:57:37.039Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop PC",
+      "device": "Desktop PC",
+      "ip": "127.0.0.1",
+      "id": "log_1790179056928_doids",
+      "timestamp": "2026-09-23T15:57:36.928Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop PC",
+      "device": "Desktop PC",
+      "ip": "127.0.0.1",
+      "id": "log_1790179056801_tyyaq",
+      "timestamp": "2026-09-23T15:57:36.801Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop (Chrome / Windows PC)",
+      "device": "Desktop (Chrome / Windows PC)",
+      "ip": "127.0.0.1",
+      "id": "log_1790177809210_vzwmd",
+      "timestamp": "2026-09-23T15:36:49.210Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop (Chrome / Windows PC)",
+      "device": "Desktop (Chrome / Windows PC)",
+      "ip": "127.0.0.1",
+      "id": "log_1790177734148_r3z1v",
+      "timestamp": "2026-09-23T15:35:34.148Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "DELETE_INSTITUTION",
+      "details": "Deleted educational institution \"Central Resource Hub High School\" (CRH-101)",
+      "device": "Desktop (Chrome / Windows PC)",
+      "id": "log_1790176549442_7a1mk",
+      "timestamp": "2026-09-23T15:15:49.442Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "DELETE_INSTITUTION",
+      "details": "Deleted educational institution \"St. Xavier Model Academy\" (XAV-202)",
+      "device": "Desktop (Chrome / Windows PC)",
+      "id": "log_1790176491708_mwinf",
+      "timestamp": "2026-09-23T15:14:51.708Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop (Chrome / Windows PC)",
+      "device": "Desktop (Chrome / Windows PC)",
+      "ip": "127.0.0.1",
+      "id": "log_1790176472488_1rmh8",
+      "timestamp": "2026-09-23T15:14:32.488Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "DELETE_USER",
+      "details": "Admin deleted faculty account \"Vadivu\" (Sundari) from institution",
+      "device": "Desktop (Chrome / Windows PC)",
+      "id": "log_1790172010745_o6usl",
+      "timestamp": "2026-09-23T14:00:10.745Z"
+    },
+    {
+      "schoolId": "sch_1789320725632_y3n2",
+      "user_id": "usr_admin_1789320725633_fzsz",
+      "username": "backofficeppm524",
+      "action": "LOGIN",
+      "details": "User signed in successfully to Govt Hr Sec School Pannaipuram from Desktop (Chrome / Windows PC)",
+      "device": "Desktop (Chrome / Windows PC)",
+      "ip": "127.0.0.1",
+      "id": "log_1790172001450_kl24n",
+      "timestamp": "2026-09-23T14:00:01.450Z"
     },
     {
       "schoolId": "sch_1789320725632_y3n2",
@@ -575,81 +610,6 @@
       "ip": "127.0.0.1",
       "id": "log_1790171518075_mz74k",
       "timestamp": "2026-09-23T13:51:58.075Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "UPDATE_FILE_TAGS",
-      "details": "Updated custom tags for \"HSCResultAnalysis.exe\": [Physics, Optics]",
-      "device": "Web",
-      "id": "log_1790010327305_a3t4x",
-      "timestamp": "2026-09-21T17:05:27.305Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790010327289_2ip9r",
-      "timestamp": "2026-09-21T17:05:27.289Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "UPDATE_FILE_TAGS",
-      "details": "Updated custom tags for \"HSCResultAnalysis.exe\": [Chemistry, Grade-11, Midterm-Review]",
-      "device": "Web",
-      "id": "log_1790010321449_w09p2",
-      "timestamp": "2026-09-21T17:05:21.449Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790010321426_1n2xk",
-      "timestamp": "2026-09-21T17:05:21.426Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790010310722_gc2zz",
-      "timestamp": "2026-09-21T17:05:10.722Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_teacher_emal",
-      "username": "emal",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790009732354_7gnxi",
-      "timestamp": "2026-09-21T16:55:32.354Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790009732232_ufr7q",
-      "timestamp": "2026-09-21T16:55:32.232Z"
     },
     {
       "schoolId": "sch_1789320725632_y3n2",
@@ -685,28 +645,6 @@
       "timestamp": "2026-09-21T16:55:31.461Z"
     },
     {
-      "schoolId": "sch_central",
-      "user_id": "usr_teacher_emal",
-      "username": "emal",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790009679003_8rz90",
-      "timestamp": "2026-09-21T16:54:39.003Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790009678899_zapgc",
-      "timestamp": "2026-09-21T16:54:38.899Z"
-    },
-    {
       "schoolId": "sch_1789320725632_y3n2",
       "user_id": "usr_admin_1789320725633_fzsz",
       "username": "backofficeppm524",
@@ -738,28 +676,6 @@
       "ip": "127.0.0.1",
       "id": "log_1790009678092_fxyff",
       "timestamp": "2026-09-21T16:54:38.092Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_teacher_emal",
-      "username": "emal",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790009660093_braqs",
-      "timestamp": "2026-09-21T16:54:20.093Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790009659885_z8h3m",
-      "timestamp": "2026-09-21T16:54:19.885Z"
     },
     {
       "schoolId": "sch_1789320725632_y3n2",
@@ -803,17 +719,6 @@
       "ip": "127.0.0.1",
       "id": "log_1790009252639_heqgz",
       "timestamp": "2026-09-21T16:47:32.639Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_teacher_emal",
-      "username": "emal",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1790009167438_bliyr",
-      "timestamp": "2026-09-21T16:46:07.438Z"
     },
     {
       "schoolId": "sch_1789320725632_y3n2",
@@ -900,38 +805,6 @@
       "timestamp": "2026-09-21T16:13:54.977Z"
     },
     {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "UPLOAD_FILE",
-      "details": "Uploaded HSCResultAnalysis.exe (52.30 MB) via reliable chunked transfer from Desktop Computer",
-      "device": "Desktop Computer",
-      "id": "log_1789440989827_c22k0",
-      "timestamp": "2026-09-15T02:56:29.827Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789440988985_v5zxv",
-      "timestamp": "2026-09-15T02:56:28.985Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789440912312_vrg3t",
-      "timestamp": "2026-09-15T02:55:12.312Z"
-    },
-    {
       "schoolId": "sch_1789320725632_y3n2",
       "user_id": "usr_admin_1789320725633_fzsz",
       "username": "backofficeppm524",
@@ -941,59 +814,6 @@
       "ip": "127.0.0.1",
       "id": "log_1789440283221_9414b",
       "timestamp": "2026-09-15T02:44:43.221Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "UPLOAD_FILE",
-      "details": "Uploaded EducationalSetup.exe (0.00 MB) via reliable chunked transfer from Desktop Computer",
-      "device": "Desktop Computer",
-      "id": "log_1789438320195_b6dvq",
-      "timestamp": "2026-09-15T02:12:00.195Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789438320156_x7eka",
-      "timestamp": "2026-09-15T02:12:00.156Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789438295409_vq2sh",
-      "timestamp": "2026-09-15T02:11:35.409Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "UPLOAD_FILE",
-      "details": "Uploaded HSCResultAnalysis.exe (0.00 MB) from Desktop (Windows)",
-      "device": "Desktop (Windows)",
-      "id": "log_1789438289833_e4sd6",
-      "timestamp": "2026-09-15T02:11:29.833Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789438289808_rr5jd",
-      "timestamp": "2026-09-15T02:11:29.808Z"
     },
     {
       "schoolId": "sch_1789320725632_y3n2",
@@ -1017,17 +837,6 @@
       "timestamp": "2026-09-15T01:59:40.213Z"
     },
     {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789405895982_3ayh2",
-      "timestamp": "2026-09-14T17:11:35.982Z"
-    },
-    {
       "schoolId": "sch_1789320725632_y3n2",
       "user_id": "usr_admin_1789320725633_fzsz",
       "username": "backofficeppm524",
@@ -1037,17 +846,6 @@
       "ip": "127.0.0.1",
       "id": "log_1789405651551_nmf0s",
       "timestamp": "2026-09-14T17:07:31.551Z"
-    },
-    {
-      "schoolId": "sch_central",
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully to Central Resource Hub High School from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789405593166_tvbo2",
-      "timestamp": "2026-09-14T17:06:33.166Z"
     },
     {
       "schoolId": "sch_1789320725632_y3n2",
@@ -1149,121 +947,34 @@
       "timestamp": "2026-09-13T17:22:21.924Z"
     },
     {
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789314493272_pc9yq",
-      "timestamp": "2026-09-13T15:48:13.272Z",
-      "schoolId": "sch_central"
-    },
-    {
-      "user_id": "usr_teacher_emal",
-      "username": "emal",
-      "action": "LOGIN",
-      "details": "User signed in successfully from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789222039646_wrxx3",
-      "timestamp": "2026-09-12T14:07:19.646Z",
-      "schoolId": "sch_central"
-    },
-    {
-      "user_id": "usr_teacher_emal",
-      "username": "emal",
-      "action": "LOGIN",
-      "details": "User signed in successfully from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789221988986_mzpvs",
-      "timestamp": "2026-09-12T14:06:28.986Z",
-      "schoolId": "sch_central"
-    },
-    {
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789221817235_zgtdu",
-      "timestamp": "2026-09-12T14:03:37.235Z",
-      "schoolId": "sch_central"
-    },
-    {
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789218634492_wxt8l",
-      "timestamp": "2026-09-12T13:10:34.492Z",
-      "schoolId": "sch_central"
-    },
-    {
-      "user_id": "usr_teacher_emal",
-      "username": "emal",
-      "action": "LOGIN",
-      "details": "User signed in successfully from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789218624543_5hnql",
-      "timestamp": "2026-09-12T13:10:24.543Z",
-      "schoolId": "sch_central"
-    },
-    {
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "UPLOAD_FILE",
-      "details": "Uploaded CG Class Topics - August 2026.xlsx (0.01 MB) from Desktop Computer",
-      "device": "Desktop Computer",
-      "id": "log_1789217959500_8gzpk",
-      "timestamp": "2026-09-12T12:59:19.500Z",
-      "schoolId": "sch_central"
-    },
-    {
-      "user_id": "usr_admin_1",
-      "username": "admin",
-      "action": "LOGIN",
-      "details": "User signed in successfully from Desktop Computer",
-      "device": "Desktop Computer",
-      "ip": "127.0.0.1",
-      "id": "log_1789217779714_geyx9",
-      "timestamp": "2026-09-12T12:56:19.714Z",
-      "schoolId": "sch_central"
-    },
-    {
       "id": "log_1",
+      "schoolId": "sch_central",
       "user_id": "usr_admin_1",
       "username": "pssofttech@gmail.com",
       "action": "UPLOAD_FILE",
       "details": "Uploaded Class_12_Lesson_5.mp4 from Mobile (iPhone 15 Pro)",
-      "timestamp": "2026-09-12T10:48:08.601Z",
-      "device": "Mobile (iPhone 15 Pro)",
-      "schoolId": "sch_central"
+      "timestamp": "2026-09-23T14:04:10.954Z",
+      "device": "Mobile (iPhone 15 Pro)"
     },
     {
       "id": "log_2",
+      "schoolId": "sch_central",
       "user_id": "usr_teacher_emal",
       "username": "emal",
       "action": "LOGIN",
       "details": "Teacher login successful from Desktop Computer",
-      "timestamp": "2026-09-12T09:48:08.601Z",
-      "device": "Desktop Computer",
-      "schoolId": "sch_central"
+      "timestamp": "2026-09-23T13:04:10.954Z",
+      "device": "Desktop Computer"
     },
     {
       "id": "log_3",
+      "schoolId": "sch_central",
       "user_id": "usr_teacher_emal",
       "username": "emal",
       "action": "UPLOAD_FILE",
       "details": "Uploaded Lesson_2_Data_Structures.pdf",
-      "timestamp": "2026-09-11T12:48:08.601Z",
-      "device": "Desktop Computer",
-      "schoolId": "sch_central"
+      "timestamp": "2026-09-22T16:04:10.954Z",
+      "device": "Desktop Computer"
     },
     {
       "id": "log_4",
@@ -1272,7 +983,7 @@
       "username": "xavier.admin",
       "action": "REGISTER_INSTITUTION",
       "details": "Registered St. Xavier Model Academy with institutional code XAV-202",
-      "timestamp": "2026-09-18T13:58:04.422Z",
+      "timestamp": "2026-09-18T16:04:10.954Z",
       "device": "Desktop Computer"
     },
     {
@@ -1282,22 +993,11 @@
       "username": "robert.t",
       "action": "UPLOAD_FILE",
       "details": "Uploaded Optics_and_Laser_Lab_Manual.pdf to Physics folder",
-      "timestamp": "2026-09-23T09:58:04.422Z",
+      "timestamp": "2026-09-23T12:04:10.954Z",
       "device": "Desktop Computer"
     }
   ],
   "schools": [
-    {
-      "id": "sch_central",
-      "code": "CRH-101",
-      "name": "Central Resource Hub High School",
-      "created_at": "2026-09-13T17:08:12.345Z",
-      "admin_email": "pssofttech@gmail.com",
-      "address": "100 Academic Way, Metro Campus",
-      "storage_quota_gb": 100,
-      "contact_phone": "+1 (555) 019-2831",
-      "brand_color": "#115e59"
-    },
     {
       "id": "sch_1789320725632_y3n2",
       "code": "STATE-405",
@@ -1310,10 +1010,21 @@
       "brand_color": "#115e59"
     },
     {
+      "id": "sch_central",
+      "code": "CRH-101",
+      "name": "Central Resource Hub High School",
+      "created_at": "2026-09-23T16:04:10.323Z",
+      "admin_email": "pssofttech@gmail.com",
+      "address": "100 Academic Way, Metro Campus",
+      "storage_quota_gb": 100,
+      "contact_phone": "+1 (555) 019-2831",
+      "brand_color": "#115e59"
+    },
+    {
       "id": "sch_xavier",
       "code": "XAV-202",
       "name": "St. Xavier Model Academy",
-      "created_at": "2026-09-23T13:58:03.802Z",
+      "created_at": "2026-09-23T16:04:10.323Z",
       "admin_email": "admin@xavier.edu",
       "address": "450 Xavier Boulevard, North Wing",
       "storage_quota_gb": 50,

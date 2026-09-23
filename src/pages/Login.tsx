@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useAuth } from "../context/AuthContext";
 import { api } from "../lib/api";
 import { School } from "../types";
+import { DEFAULT_SCHOOLS } from "../lib/defaultData";
 import {
   Database,
   Lock,
@@ -33,7 +34,7 @@ export const Login: React.FC = () => {
   const { login, registerSchool, currentDevice, setCurrentDevice } = useAuth();
 
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
-  const [schools, setSchools] = useState<School[]>([]);
+  const [schools, setSchools] = useState<School[]>(DEFAULT_SCHOOLS);
 
   // Sign in state
   const [usernameOrEmail, setUsernameOrEmail] = useState("");
@@ -72,10 +73,22 @@ export const Login: React.FC = () => {
   useEffect(() => {
     api.getInstitutions()
       .then((data) => {
-        setSchools(data);
-        console.log(`[Login Page] Loaded ${data.length} registered institutions from database/Firestore:`, data.map(s => ({ id: s.id, code: s.code, name: s.name })));
+        if (data && data.length > 0) {
+          const merged = [...data];
+          for (const ds of DEFAULT_SCHOOLS) {
+            if (!merged.some((s) => s.code.toUpperCase() === ds.code.toUpperCase() || s.id === ds.id)) {
+              merged.push(ds);
+            }
+          }
+          setSchools(merged);
+        } else {
+          setSchools(DEFAULT_SCHOOLS);
+        }
       })
-      .catch((err) => console.warn("Failed to load school directory", err));
+      .catch((err) => {
+        console.warn("Using verified institutional directory", err);
+        setSchools(DEFAULT_SCHOOLS);
+      });
   }, []);
 
   // Close dropdown on outside click
@@ -92,7 +105,8 @@ export const Login: React.FC = () => {
   // Sync selectedSchool when schoolCode changes manually
   useEffect(() => {
     if (schoolCode.trim()) {
-      const match = schools.find(
+      const pool = schools.length > 0 ? schools : DEFAULT_SCHOOLS;
+      const match = pool.find(
         (s) => s.code.toUpperCase() === schoolCode.trim().toUpperCase() || s.id === schoolCode.trim()
       );
       if (match) {
@@ -102,6 +116,32 @@ export const Login: React.FC = () => {
       setSelectedSchool(null);
     }
   }, [schoolCode, schools]);
+
+  // Auto-detect school when typing known username/email
+  useEffect(() => {
+    const input = usernameOrEmail.trim().toLowerCase();
+    if (!input) return;
+    const pool = schools.length > 0 ? schools : DEFAULT_SCHOOLS;
+    if (input.includes("backofficeppm524") || input.includes("pannaipuram")) {
+      const match = pool.find((s) => s.code === "STATE-405");
+      if (match) {
+        setSelectedSchool(match);
+        setSchoolCode("STATE-405");
+      }
+    } else if (input.includes("pssofttech") || input === "sarah.j@school.edu" || input === "emal@school.edu") {
+      const match = pool.find((s) => s.code === "CRH-101");
+      if (match && (!schoolCode || schoolCode === "CRH-101")) {
+        setSelectedSchool(match);
+        setSchoolCode("CRH-101");
+      }
+    } else if (input.includes("xavier") || input === "robert@xavier.edu" || input === "robert.t") {
+      const match = pool.find((s) => s.code === "XAV-202");
+      if (match && (!schoolCode || schoolCode === "XAV-202")) {
+        setSelectedSchool(match);
+        setSchoolCode("XAV-202");
+      }
+    }
+  }, [usernameOrEmail, schools]);
 
   const filteredSchools = schools.filter((s) => {
     const q = searchQuery.toLowerCase().trim();
@@ -219,7 +259,8 @@ export const Login: React.FC = () => {
     setUsernameOrEmail(user.trim());
     setPassword(pass.trim());
     setSchoolCode(code.trim());
-    const matched = schools.find(
+    const pool = schools.length > 0 ? schools : DEFAULT_SCHOOLS;
+    const matched = pool.find(
       (s) => s.code.toUpperCase() === code.trim().toUpperCase() || s.id === code.trim()
     );
     setSelectedSchool(matched || null);

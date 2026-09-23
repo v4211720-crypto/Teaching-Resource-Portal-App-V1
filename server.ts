@@ -538,17 +538,12 @@ class CentralDatabase {
       modified = true;
     }
 
-    // Ensure default school (Central) exists
-    if (!this.data.schools.some((s) => s.id === "sch_central")) {
-      this.data.schools.unshift(initial.schools[0]);
-      modified = true;
-    }
-
-    // Ensure second school (St. Xavier) exists for multi-school testing
-    if (!this.data.schools.some((s) => s.id === "sch_xavier")) {
-      const xavier = initial.schools.find((s) => s.id === "sch_xavier");
-      if (xavier) this.data.schools.push(xavier);
-      modified = true;
+    // Ensure all standard initial schools exist
+    for (const s of initial.schools) {
+      if (!this.data.schools.some((existing) => existing.id === s.id || existing.code.toUpperCase() === s.code.toUpperCase())) {
+        this.data.schools.push(s);
+        modified = true;
+      }
     }
 
     // Ensure all schools have a valid brand_color (defaults to Cambridge Scholastic Teal #115e59)
@@ -1356,25 +1351,26 @@ async function startServer() {
       // Query institutions collection specifically
       targetSchool = db.findInstitutionByCode(requestedSchool) || db.findInstitutionById(requestedSchool);
 
-      if (
-        !targetSchool &&
-        (requestedSchool === "XAV-202" ||
-          requestedSchool === "sch_xavier" ||
-          username.toLowerCase() === "robert.t" ||
-          username.toLowerCase() === "admin@xavier.edu" ||
-          username.toLowerCase() === "robert@xavier.edu")
-      ) {
+      if (!targetSchool) {
         const initial = getInitialDb();
-        const xavier = initial.schools.find((s) => s.id === "sch_xavier");
-        if (xavier) {
-          db.addSchool(xavier);
-          for (const u of initial.users.filter((u) => u.schoolId === "sch_xavier")) {
+        const matchedSeedSchool = initial.schools.find(
+          (s) =>
+            s.code.toUpperCase() === requestedSchool.toUpperCase() ||
+            s.id === requestedSchool ||
+            s.admin_email?.toLowerCase() === username.toLowerCase() ||
+            (s.code === "STATE-405" && username.toLowerCase().includes("backofficeppm524"))
+        );
+        if (matchedSeedSchool) {
+          if (!db.findSchoolById(matchedSeedSchool.id)) {
+            db.addSchool(matchedSeedSchool);
+          }
+          for (const u of initial.users.filter((u) => u.schoolId === matchedSeedSchool.id)) {
             if (!db.findUserById(u.id)) db.addUser(u);
           }
-          for (const f of initial.folders.filter((f) => f.schoolId === "sch_xavier")) {
+          for (const f of initial.folders.filter((f) => f.schoolId === matchedSeedSchool.id)) {
             if (!db.findFolderById(f.id)) db.addFolder(f);
           }
-          targetSchool = xavier;
+          targetSchool = matchedSeedSchool;
         }
       }
       
@@ -1409,24 +1405,29 @@ async function startServer() {
     if (!user) {
       let existsElsewhere = db.findUserByUsernameOrEmail(username);
 
-      // Self-heal demo account for St. Xavier if needed
-      if (!existsElsewhere && (username.toLowerCase() === "robert.t" || username.toLowerCase() === "robert@xavier.edu" || username.toLowerCase() === "admin@xavier.edu")) {
+      // Self-heal demo account for any initial school or user
+      if (!existsElsewhere) {
         const initial = getInitialDb();
-        const xavier = initial.schools.find((s) => s.id === "sch_xavier");
-        if (xavier && !db.findSchoolById("sch_xavier")) {
-          db.addSchool(xavier);
-        }
-        for (const u of initial.users.filter((u) => u.schoolId === "sch_xavier")) {
-          if (!db.findUserById(u.id)) {
-            db.addUser(u);
+        const initialUser = initial.users.find(
+          (u) =>
+            u.username.toLowerCase() === username.toLowerCase() ||
+            u.email.toLowerCase() === username.toLowerCase()
+        );
+        if (initialUser) {
+          const initialSchool = initial.schools.find((s) => s.id === initialUser.schoolId);
+          if (initialSchool && !db.findSchoolById(initialSchool.id)) {
+            db.addSchool(initialSchool);
           }
-        }
-        for (const f of initial.folders.filter((f) => f.schoolId === "sch_xavier")) {
-          if (!db.findFolderById(f.id)) {
-            db.addFolder(f);
+          if (!db.findUserById(initialUser.id)) {
+            db.addUser(initialUser);
           }
+          for (const f of initial.folders.filter((f) => f.schoolId === initialUser.schoolId)) {
+            if (!db.findFolderById(f.id)) {
+              db.addFolder(f);
+            }
+          }
+          existsElsewhere = db.findUserByUsernameOrEmail(username);
         }
-        existsElsewhere = db.findUserByUsernameOrEmail(username);
       }
 
       if (existsElsewhere) {
