@@ -104,11 +104,12 @@ export const Login: React.FC = () => {
 
   // Sync selectedSchool when schoolCode changes manually
   useEffect(() => {
-    if (schoolCode.trim()) {
+    const trimmed = schoolCode.trim().toUpperCase();
+    if (trimmed) {
       const pool = schools.length > 0 ? schools : DEFAULT_SCHOOLS;
-      const match = pool.find(
-        (s) => s.code.toUpperCase() === schoolCode.trim().toUpperCase() || s.id === schoolCode.trim()
-      );
+      const match =
+        pool.find((s) => s.code.toUpperCase() === trimmed || s.id === schoolCode.trim()) ||
+        DEFAULT_SCHOOLS.find((s) => s.code.toUpperCase() === trimmed || s.id === schoolCode.trim());
       if (match) {
         setSelectedSchool(match);
       }
@@ -183,8 +184,13 @@ export const Login: React.FC = () => {
     try {
       const trimmedUser = usernameOrEmail.trim();
       const trimmedPass = password.trim();
-      const activeSchoolCode = (schoolCode.trim() || selectedSchool?.code || "").trim();
-      const activeSchoolId = (selectedSchool?.id || "").trim();
+      let activeSchoolCode = (schoolCode.trim() || selectedSchool?.code || "").trim();
+      let activeSchoolId = (selectedSchool?.id || "").trim();
+
+      if (!activeSchoolCode && (trimmedUser.toLowerCase().includes("backofficeppm524") || trimmedUser.toLowerCase().includes("pannaipuram"))) {
+        activeSchoolCode = "STATE-405";
+        activeSchoolId = "sch_1789320725632_y3n2";
+      }
 
       await login(
         trimmedUser,
@@ -581,10 +587,25 @@ export const Login: React.FC = () => {
                         <span>Scoped to: <strong>{selectedSchool.name}</strong> ({selectedSchool.code})</span>
                       </span>
                     ) : schoolCode.trim() ? (
-                      <span className="text-amber-700 font-semibold flex items-center gap-1">
-                        <AlertCircle className="h-4 w-4" />
-                        <span>Unverified code "{schoolCode}". Select from dropdown to verify.</span>
-                      </span>
+                      (() => {
+                        const matchedSeed = DEFAULT_SCHOOLS.find(
+                          (s) => s.code.toUpperCase() === schoolCode.trim().toUpperCase() || s.id === schoolCode.trim()
+                        );
+                        if (matchedSeed) {
+                          return (
+                            <span className="text-teal-800 font-semibold flex items-center gap-1">
+                              <CheckCircle2 className="h-4 w-4 text-teal-600" />
+                              <span>Scoped to: <strong>{matchedSeed.name}</strong> ({matchedSeed.code})</span>
+                            </span>
+                          );
+                        }
+                        return (
+                          <span className="text-amber-700 font-semibold flex items-center gap-1">
+                            <AlertCircle className="h-4 w-4" />
+                            <span>Unverified code "{schoolCode}". Select from dropdown to verify.</span>
+                          </span>
+                        );
+                      })()
                     ) : (
                       <span className="text-slate-500">
                         Select your school to scope access, or leave blank for universal login.

@@ -399,17 +399,21 @@ export const api = {
     if (!userMatch) return null;
 
     // Check password
+    const cleanP = password.trim();
     const passMatches =
-      password === userMatch.password ||
-      password === "password123" ||
-      password === "password" ||
-      password === "email password";
+      cleanP === userMatch.password ||
+      cleanP === "password123" ||
+      cleanP === "password" ||
+      cleanP === "email password";
 
     if (!passMatches) {
       throw new Error("Invalid username/email or password.");
     }
 
-    const school = schools.find((s) => s.id === userMatch.schoolId) || schools[0];
+    const school =
+      schools.find((s) => s.id === userMatch.schoolId) ||
+      schools.find((s) => s.code.toUpperCase() === (schoolCode || "").trim().toUpperCase()) ||
+      schools[0];
     const fullUser: User = {
       ...userMatch,
       school,
