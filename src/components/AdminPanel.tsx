@@ -292,12 +292,16 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
   const handleCreateUser = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!newUsername.trim() || !newEmail.trim() || !newPassword) {
+      alert("Please enter username, email, and password");
+      return;
+    }
     try {
-      await api.createTeacher({
-        username: newUsername,
-        email: newEmail,
+      const created = await api.createTeacher({
+        username: newUsername.trim(),
+        email: newEmail.trim().toLowerCase(),
         password: newPassword,
-        name: newName,
+        name: (newName || newUsername).trim(),
         role: newRole,
       });
       setShowAddUserModal(false);
@@ -305,7 +309,12 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       setNewEmail("");
       setNewPassword("");
       setNewName("");
-      loadData();
+      addNotification(
+        "Teacher Account Created",
+        `Teacher ${created.name || created.username} account has been created successfully.`,
+        "success"
+      );
+      await loadData();
     } catch (err: any) {
       alert(err.message || "Failed to create teacher");
     }

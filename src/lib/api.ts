@@ -27,13 +27,70 @@ export function getOfflineSchools(): School[] {
   }
 }
 
-export function getOfflineUsers(): (User & { password: string })[] {
+const OFFLINE_DELETED_USERS_KEY = "offline_deleted_user_ids";
+
+export function saveOfflineUser(user: Partial<User> & { id: string; password?: string; username: string }) {
   try {
     const raw = localStorage.getItem(OFFLINE_USERS_KEY);
     const custom: (User & { password: string })[] = raw ? JSON.parse(raw) : [];
-    const all = [...DEFAULT_USERS];
+    const idx = custom.findIndex(
+      (u) => u.id === user.id || (user.username && u.username.toLowerCase() === user.username.toLowerCase())
+    );
+    const defaultMatched = DEFAULT_USERS.find(
+      (u) => u.id === user.id || (user.username && u.username.toLowerCase() === user.username.toLowerCase())
+    );
+    const existingPass = (idx >= 0 ? custom[idx].password : null) || defaultMatched?.password || "password123";
+    const fullItem: User & { password: string } = {
+      ...(defaultMatched || {}),
+      ...(idx >= 0 ? custom[idx] : {}),
+      ...user,
+      password: user.password || existingPass,
+    } as User & { password: string };
+
+    if (idx >= 0) {
+      custom[idx] = fullItem;
+    } else {
+      custom.push(fullItem);
+    }
+    localStorage.setItem(OFFLINE_USERS_KEY, JSON.stringify(custom));
+  } catch (e) {
+    console.error("Failed to save offline user", e);
+  }
+}
+
+export function deleteOfflineUser(id: string) {
+  try {
+    const raw = localStorage.getItem(OFFLINE_USERS_KEY);
+    let custom: (User & { password: string })[] = raw ? JSON.parse(raw) : [];
+    custom = custom.filter((u) => u.id !== id);
+    localStorage.setItem(OFFLINE_USERS_KEY, JSON.stringify(custom));
+
+    const delRaw = localStorage.getItem(OFFLINE_DELETED_USERS_KEY);
+    const deletedIds: string[] = delRaw ? JSON.parse(delRaw) : [];
+    if (!deletedIds.includes(id)) {
+      deletedIds.push(id);
+      localStorage.setItem(OFFLINE_DELETED_USERS_KEY, JSON.stringify(deletedIds));
+    }
+  } catch (e) {
+    console.error("Failed to delete offline user", e);
+  }
+}
+
+export function getOfflineUsers(): (User & { password: string })[] {
+  try {
+    const delRaw = localStorage.getItem(OFFLINE_DELETED_USERS_KEY);
+    const deletedIds: string[] = delRaw ? JSON.parse(delRaw) : [];
+
+    const raw = localStorage.getItem(OFFLINE_USERS_KEY);
+    const custom: (User & { password: string })[] = raw ? JSON.parse(raw) : [];
+    const all = [...DEFAULT_USERS].filter((u) => !deletedIds.includes(u.id));
+
     for (const c of custom) {
-      if (!all.some((u) => u.id === c.id || u.username.toLowerCase() === c.username.toLowerCase())) {
+      if (deletedIds.includes(c.id)) continue;
+      const idx = all.findIndex((u) => u.id === c.id || u.username.toLowerCase() === c.username.toLowerCase());
+      if (idx >= 0) {
+        all[idx] = { ...all[idx], ...c };
+      } else {
         all.push(c);
       }
     }
@@ -1073,17 +1130,61 @@ export const api = {
     department?: string;
     storage_limit_gb?: number;
   }) {
-    const res = await fetch("/api/admin/users", {
-      method: "POST",
-      headers: authHeaders({ "Content-Type": "application/json" }),
-      body: JSON.stringify(userData),
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ error: "Failed to create user" }));
-      throw new Error(err.error || "Failed to create user");
+    try {
+      const res = await fetch("/api/admin/users", {
+        method: "POST",
+        headers: authHeaders({ "Content-Type": "application/json" }),
+        body: JSON.stringify(userData),
+      });
+      const contentType = res.headers.get("content-type") || "";
+      if (res.ok && contentType.includes("application/json")) {
+        const data = await res.json();
+        if (data.user) {
+          saveOfflineUser({ ...data.user, password: userData.password });
+          return data.user as User;
+        }
+      }
+      if (res.status === 400 && contentType.includes("application/json")) {
+        const err = await res.json().catch(() => ({ error: "Validation failed" }));
+        throw new Error(err.error || "User already exists");
+      }
+    } catch (e: any) {
+      if (e.message && e.message.includes("already exists")) {
+        throw e;
+      }
+      // On network failure or 404 (e.g. Vercel deployment), seamlessly fallback to offline persistence
     }
-    const data = await res.json();
-    return data.user as User;
+
+    // Offline / static hosting fallback:
+    const currentUser = await this.getCurrentUser();
+    const existing = getOfflineUsers().find(
+      (u) =>
+        u.schoolId === currentUser?.schoolId &&
+        (u.username.toLowerCase() === userData.username.trim().toLowerCase() ||
+          u.email.toLowerCase() === userData.email.trim().toLowerCase())
+    );
+    if (existing) {
+      throw new Error("A user with this username or email already exists in your school");
+    }
+
+    const newUserId = `usr_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
+    const createdUser: User & { password: string } = {
+      id: newUserId,
+      schoolId: currentUser?.schoolId || "sch_1789320725632_y3n2",
+      username: userData.username.trim(),
+      email: userData.email.trim().toLowerCase(),
+      password: userData.password,
+      role: (userData.role as any) || "teacher",
+      status: "active",
+      storage_limit: (userData.storage_limit_gb || 50) * 1024 * 1024 * 1024,
+      created_at: new Date().toISOString(),
+      name: userData.name?.trim() || userData.username.trim(),
+      department: userData.department || "Teaching Staff",
+      school: currentUser?.school || DEFAULT_SCHOOLS[0],
+    };
+
+    saveOfflineUser(createdUser);
+    return createdUser as User;
   },
 
   async createTeacher(userData: {
@@ -1097,17 +1198,34 @@ export const api = {
   },
 
   async updateAdminUser(id: string, updates: Partial<User> & { password?: string; storage_limit_gb?: number }) {
-    const res = await fetch(`/api/admin/users/${id}`, {
-      method: "PATCH",
-      headers: authHeaders({ "Content-Type": "application/json" }),
-      body: JSON.stringify(updates),
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ error: "Failed to update user" }));
-      throw new Error(err.error || "Failed to update user");
+    try {
+      const res = await fetch(`/api/admin/users/${id}`, {
+        method: "PATCH",
+        headers: authHeaders({ "Content-Type": "application/json" }),
+        body: JSON.stringify(updates),
+      });
+      const contentType = res.headers.get("content-type") || "";
+      if (res.ok && contentType.includes("application/json")) {
+        const data = await res.json();
+        if (data.user) {
+          saveOfflineUser(data.user);
+          return data.user as User;
+        }
+      }
+    } catch {
+      // ignore
     }
-    const data = await res.json();
-    return data.user as User;
+
+    const users = getOfflineUsers();
+    const existing = users.find((u) => u.id === id);
+    if (!existing) throw new Error("User not found");
+    const updated = {
+      ...existing,
+      ...updates,
+      storage_limit: updates.storage_limit_gb ? updates.storage_limit_gb * 1024 * 1024 * 1024 : existing.storage_limit,
+    };
+    saveOfflineUser(updated);
+    return updated as User;
   },
 
   async updateTeacher(id: string, updates: Partial<User>) {
@@ -1119,15 +1237,20 @@ export const api = {
   },
 
   async deleteAdminUser(id: string) {
-    const res = await fetch(`/api/admin/users/${id}`, {
-      method: "DELETE",
-      headers: authHeaders(),
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ error: "Failed to delete user" }));
-      throw new Error(err.error || "Failed to delete user");
+    try {
+      const res = await fetch(`/api/admin/users/${id}`, {
+        method: "DELETE",
+        headers: authHeaders(),
+      });
+      if (res.ok) {
+        deleteOfflineUser(id);
+        return await res.json();
+      }
+    } catch {
+      // ignore
     }
-    return res.json();
+    deleteOfflineUser(id);
+    return { success: true, message: "User deleted successfully" };
   },
 
   async deleteTeacher(id: string) {
@@ -1135,9 +1258,15 @@ export const api = {
   },
 
   async getAdminLogs() {
-    const res = await fetch("/api/admin/logs", { headers: authHeaders() });
-    if (!res.ok) throw new Error("Failed to get logs");
-    const data = await res.json();
-    return data.logs as ActivityLog[];
+    try {
+      const res = await fetch("/api/admin/logs", { headers: authHeaders() });
+      if (res.ok) {
+        const data = await res.json();
+        return (data.logs || []) as ActivityLog[];
+      }
+    } catch {
+      // ignore
+    }
+    return [] as ActivityLog[];
   },
 };
