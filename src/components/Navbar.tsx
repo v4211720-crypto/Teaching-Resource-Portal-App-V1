@@ -12,19 +12,16 @@ import {
   Laptop,
   RefreshCw,
   LogOut,
-  Settings,
-  HardDrive,
   Menu,
   CheckCircle2,
   AlertTriangle,
   Building2,
-  Info,
 } from "lucide-react";
 
 interface NavbarProps {
   onToggleSidebar?: () => void;
-  onOpenUpload: () => void;
-  onOpenSettings: () => void;
+  onOpenUpload?: () => void;
+  onOpenSettings?: () => void;
   onOpenAbout?: () => void;
   onRefreshData?: () => void;
   isRefreshing?: boolean;
@@ -41,9 +38,9 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({
   onToggleSidebar,
-  onOpenUpload,
-  onOpenSettings,
-  onOpenAbout,
+  onOpenUpload: _onOpenUpload,
+  onOpenSettings: _onOpenSettings,
+  onOpenAbout: _onOpenAbout,
   onRefreshData,
   isRefreshing = false,
   storageUsedBytes,
@@ -378,57 +375,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
               )}
 
-              <div className="mt-1 space-y-0.5">
+              <div className="pt-1">
                 <button
-                  id="btn-menu-settings"
+                  id="btn-logout"
                   onClick={() => {
                     setShowUserMenu(false);
-                    onOpenSettings();
+                    logout();
                   }}
-                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 transition"
                 >
-                  <Settings className="h-4 w-4 text-slate-500" />
-                  Settings & Profile
-                </button>
-                {onOpenAbout && (
-                  <button
-                    id="btn-menu-about"
-                    onClick={() => {
-                      setShowUserMenu(false);
-                      onOpenAbout();
-                    }}
-                    className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50"
-                  >
-                    <Info className="h-4 w-4 text-amber-500" />
-                    About Developer & App
-                  </button>
-                )}
-                <button
-                  id="btn-menu-upload"
-                  onClick={() => {
-                    setShowUserMenu(false);
-                    onOpenUpload();
-                  }}
-                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-blue-600 hover:bg-blue-50"
-                >
-                  <HardDrive className="h-4 w-4" />
-                  Upload Resource
+                  <LogOut className="h-4 w-4" />
+                  Sign Out
                 </button>
               </div>
-
-              <div className="my-1 border-t border-slate-100" />
-
-              <button
-                id="btn-logout"
-                onClick={() => {
-                  setShowUserMenu(false);
-                  logout();
-                }}
-                className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium text-rose-600 hover:bg-rose-50"
-              >
-                <LogOut className="h-4 w-4" />
-                Sign Out
-              </button>
             </div>
           )}
         </div>

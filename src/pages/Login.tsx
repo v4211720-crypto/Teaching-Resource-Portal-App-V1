@@ -645,7 +645,7 @@ export const Login: React.FC = () => {
                       autoCapitalize="none"
                       autoCorrect="off"
                       spellCheck={false}
-                      placeholder="e.g. backofficeppm524@gmail.com, pssofttech@gmail.com"
+                      placeholder="Enter your Username or Email Address"
                       value={usernameOrEmail}
                       onChange={(e) => setUsernameOrEmail(e.target.value)}
                       className="block w-full pl-10 pr-3.5 py-2.5 text-sm text-slate-900 rounded-xl border border-slate-200 placeholder-slate-400 bg-slate-50/50 focus:bg-white focus:outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 transition"
